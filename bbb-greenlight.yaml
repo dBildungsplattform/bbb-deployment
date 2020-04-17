@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bbb-deployment
+  labels:
+    app: bbb-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bbb
+  template:
+    metadata:
+      labels:
+        app: bbb
+    spec:
+      containers:
+      - name: bbb
+        image: bigbluebutton/greenlight:latest
+        ports:
+        - containerPort: 80 #Port?
