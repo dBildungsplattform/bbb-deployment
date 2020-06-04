@@ -1,20 +1,147 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Bigbluebutton
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Scalable video conferencing on virtual machines.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## Intro
+This terraform scripts do the following
+1. Provisioning of n bbb-server and 1 scalelite server
+2. Setup needed firewall rules in IONOS
+3. Install scalelite-server with all the needed software in docker-compose
+    1. Scalelite
+    2. AutoScaler
+    3. TLS (wildcard certificate)
+    4. NodeExporter (TLS, basic auth)
+4. Install bbb-server software
+    1. bbb-install
+    2. TLS (wildcard certificate)
+    3. NodeExporter (TLS, basis auth)
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+## Structure
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+The whole setup is based on Terraform and existing installation processes for Bigbluebutton and Scalelite.
+
+[github bigbluebutton](https://github.com/blindsidenetworks/scalelite)
+
+[github scalelite](https://github.com/bigbluebutton/bigbluebutton)
+
+```
+|-- base
+|   |-- doc
+|   |-- environment
+|   |   `-- dev
+|   |   `-- prod
+|   |-- files
+|   |   `-- bbb-files
+|   |   `-- scalelite-files
+|   |-- keys
+|   |-- testing
+```
+## Requirements
+- [terraform/v0.12.24](https://learn.hashicorp.com/terraform/getting-started/install.html)
+
+## Pre steps
+### 0. DNS and IP stacks
+Currently its not possible to handle DNS in IONOS. Thats why we have to define static DNS names beforehand. For this an IONOS IP Stack was created for each environment (DEV, PROD). These IPs where mapped to DNS names via Google Domain service. 
+
+Example:
+```bash
+bbb-1.bbb.messenger.schule -> 123.123.123.123
+```
+
+Thats why we have to setup a static IP list in every ``secret.tfvars`` file
+
+Furthermore we had to create a wildcard certicate for all the subdomains ``*.bbb.messenger.schule`` and configure this certificate during the setup phase in terraform. 
+
+### 1. create a secrets.tfvars file with following parameter
+```console
+hpi_ionos_user=<IONOS USER LOGIN>
+hpi_ionos_pw=<IONOS PW LOGIN>
+datacenter=<IONOS DATACENTER UUID> 
+turnServerPw=<TURN SERVER PW>
+scalite_secret=<SCALELITE GENERATED SECRET> # openssl rand -hex 64
+scalite_secret_lb=<SCALELITE GENERATED SECRET> openssl rand -hex 32
+bbb_reserved_ips=<LIST OF RESERVED BBB SERVER IPs> #[""]
+scalite_redisurl="<REDIS URL>"
+scalelite_reserved_ips=<LIST OF RESERVED SCALELITE SERVER IPs> #[""]
+scalite_pg_pw=<SCALELITE POSTGRES PW>
+```
+
+### 2. adjust values in terraform.tfvars
+1. Go to environment/<your env>/terraform.tfvars
+2. Adjust with the values you want
+
+### 3. add wildcard certification for defined domain
+add your letsencrypt cert folder to
+- files/bbb-files/cert
+- files/scalelite-files/data/cert
+
+### 4. start Terraform
+
+```bash
+cd environment/<your env>/
+terraform plan -var-file=secrets.tfvars
+terraform apply -var-file=secrets.tfvars
+```
+
+## Architecture
+
+The overall architecture with Scalelite and BigBlueButton is the same as described in the official [Scalelite-Repo](https://github.com/blindsidenetworks/scalelite#architecture-of-scalelite)
+
+Currently only one Scalelite server is serving all configured BBB server. 
+
+Additionally to this, there is running a new component called [bbb-scaler](https://github.com/schul-cloud/bbb_scaler ) on the scalelite server. 
+
+Furthermore on every server a [node-exporter](https://github.com/prometheus/node_exporter) instance is running and exposing the system metrics. 
+
+These metrics are collected in prometheus and are the basis for the AutoScaler component
+
+![](doc/ArchitectureAutoScaler.png)
+
+## AutoScaler
+
+### Intro
+The AutoScaler component is monitoring the bbb cluster and will increase / decrease memory and cpu or start / stop machines, dependend on the current workload.
+
+For this the AutoScaler checks in an configured interval the system metrics for each machine and  from the whole cluster in average. Based on this, the next steps are executed. 
+
+The app is running on the scalelite node within docker-compose and will deployed and configured via this Terraform module.
+
+More infos and the source code can be find at the [bbb-scaler repo](https://github.com/schul-cloud/bbb_scaler) 
+
+### Needed parameter
+
+These parameters can be defined in the corresponding terraform.tfvar file
+
+example:
+```bash
+#
+# AUTOSCALER
+#
+autoscaler_min_active_machines=2
+autoscaler_waitingtime=300000 # 3min
+autoscaler_max_allowed_workload=0.85
+autoscaler_min_allowed_workload=0.15
+autoscaler_max_worker_memory=16384
+autoscaler_max_worker_cpu=
+autoscaler_max_allowed_cpu_workload=
+autoscaler_min_allowed_cpu_workload=
+```
+
+See all the parameters in the [docker-compose.yaml](files/scalelite-files/docker-compose.yaml) file 
+```yaml
+      - IONOS_USER=${IONOS_USER}
+      - IONOS_PASS=${IONOS_PW}
+      - IONOS_DATACENTER=${DATACENTER}
+      - MINIMUM_ACTIVE_MACHINES=${MINIMUM_ACTIVE_MACHINES}
+      - WAITINGTIME=${WAITINGTIME}
+      - MAX_ALLOWED_WORKLOAD=${MAX_ALLOWED_WORKLOAD}
+      - MIN_ALLOWED_WORKLOAD=${MIN_ALLOWED_WORKLOAD}
+      - MAX_WORKER_MEMORY=${MAX_WORKER_MEMORY}
+      - DEFAULT_WORKER_MEMORY=${DEFAULT_WORKER_MEMORY}
+      - BBB_PASS=${LOADBALANCER_SECRET}
+      - GRAFANA_TOKEN=${GRAFANA_TOKEN}
+      - DEFAULT_WORKER_CPU=
+      - MAX_WORKER_CPU=
+      - MIN_ALLOWED_CPU_WORKLOAD=
+      - MAX_ALLOWED_CPU_WORKLOAD=
+```

@@ -1,0 +1,194 @@
+INFO: [97de9dc2-fc59-4472-a12f-4bed77106683] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=592.47 view=439.96 db=108.14 host=greenlight 
+INFO: [af36b90d-660c-480e-8e48-8a800c167f29] method=GET path=/b/signin format=html controller=SessionsController action=signin status=200 duration=75.47 view=42.78 db=15.95 host=greenlight 
+INFO: [29e36d28-8d30-49cd-94fb-8391dd4af688] Support: admin@example.com is attempting to login. 
+INFO: [29e36d28-8d30-49cd-94fb-8391dd4af688] Support: admin@example.com has successfully logged in. 
+INFO: [29e36d28-8d30-49cd-94fb-8391dd4af688] method=POST path=/b/u/login format=html controller=SessionsController action=create status=302 duration=440.40 view=0.00 db=89.88 location=http://localhost:5000/b/adm-ng6-hzm host=greenlight 
+INFO: [b4e5f604-d79d-422e-a97a-a071f8d5a4d1] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=3120.79 view=50.69 db=134.27 host=greenlight 
+INFO: [b50b7aca-c90c-42f4-8f48-1f62b9034916] Support: admin@example.com has created a new room adm-rr7-9kt. 
+INFO: [b50b7aca-c90c-42f4-8f48-1f62b9034916] method=POST path=/b/ format=html controller=RoomsController action=create status=302 duration=327.60 view=0.00 db=20.30 location=http://localhost:5000/b/adm-rr7-9kt host=greenlight 
+INFO: [069cfbe4-66d0-4a90-9acd-ef7a9098a737] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=523.85 view=24.28 db=73.71 host=greenlight 
+INFO: [6fda5e4e-c31c-4b0a-af9e-62d5002d0c83] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=460.43 view=21.75 db=66.89 host=greenlight 
+INFO: [3bfc18ab-7e41-4a6e-8d8b-8a1ca7289caa] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=472.64 view=24.87 db=84.80 host=greenlight 
+INFO: [3602d1df-5e79-43e5-afea-94f01e6b04f1] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=460.73 view=22.75 db=82.41 host=greenlight 
+INFO: [19c183e1-e566-4130-a2da-56ca4b053dee] Support: admin@example.com is starting room adm-rr7-9kt 
+INFO: [19c183e1-e566-4130-a2da-56ca4b053dee] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: 0ac19a22-e080-497a-b11f-75da949fb79d) to Async(default) at 2020-05-13 08:35:02 UTC with arguments: #<GlobalID:0x000055640b1777e8 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [19c183e1-e566-4130-a2da-56ca4b053dee] method=POST path=/b/adm-rr7-9kt/start format=html controller=RoomsController action=start status=302 duration=474.43 view=0.00 db=20.86 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [0ac19a22-e080-497a-b11f-75da949fb79d] Performing NotifyUserWaitingJob (Job ID: 0ac19a22-e080-497a-b11f-75da949fb79d) from Async(default) with arguments: #<GlobalID:0x000055640cc846f8 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [0ac19a22-e080-497a-b11f-75da949fb79d] Performed NotifyUserWaitingJob (Job ID: 0ac19a22-e080-497a-b11f-75da949fb79d) from Async(default) in 8.63ms 
+INFO: [50d1547f-522f-4af9-b991-5e21477ba373] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=473.07 view=23.54 db=58.73 host=greenlight 
+INFO: [3516de46-208c-4737-bb07-3e6a6e6e260e] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=507.27 view=35.39 db=55.07 host=greenlight 
+INFO: [20b3cf28-fef3-452a-ad74-bf5a226eb4b1] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=456.41 view=23.10 db=53.38 host=greenlight 
+INFO: [b7278924-1d33-475e-8602-b8cdc6c7d011] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=448.73 view=23.08 db=54.33 host=greenlight 
+INFO: [7fb8115e-b61b-4c5d-9cac-53de246cba09] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=491.17 view=21.95 db=55.60 host=greenlight 
+INFO: [5ac59689-e795-4688-b2f6-4389363ff533] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=695.27 view=57.97 db=173.59 host=greenlight 
+INFO: [c1c25b90-e51b-4f72-b160-f0c32f0b488f] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=272.91 view=51.22 db=31.06 host=greenlight 
+INFO: [d38cc170-9a02-4173-840c-f3be63fee56a] Support: Samir is joining room adm-rr7-9kt 
+INFO: [d38cc170-9a02-4173-840c-f3be63fee56a] method=POST path=/b/adm-rr7-9kt format=html controller=RoomsController action=join status=302 duration=225.29 view=0.00 db=22.06 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [dde594cf-707c-4d3d-9ad6-e0d0cf2e9a67] method=GET path=/b/adm-rr7-9kt/shared_users format=*/* controller=RoomsController action=shared_users status=200 duration=322.69 view=0.36 db=81.99 host=greenlight 
+INFO: [25cf222e-b702-4fa6-b711-be176d048b86] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=563.64 view=26.61 db=87.88 host=greenlight 
+INFO: [7b52b3c1-4d4a-4788-a668-bae813367cbf] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=933.25 view=70.46 db=232.48 host=greenlight 
+INFO: [6db849da-59d6-4b48-b4b8-3298c631c604] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=549.76 view=47.49 db=102.93 host=greenlight 
+INFO: [5bc02cdf-e5ed-4ed5-940f-f485b85996c2] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=509.32 view=32.64 db=93.65 host=greenlight 
+INFO: [5ca9974d-3547-428b-abe5-5d2ba47852dc] Support: admin@example.com is starting room adm-rr7-9kt 
+INFO: [5ca9974d-3547-428b-abe5-5d2ba47852dc] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: f00aab5c-621d-40ad-9211-47d617185d74) to Async(default) at 2020-05-13 09:19:23 UTC with arguments: #<GlobalID:0x000055640b758ab8 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [5ca9974d-3547-428b-abe5-5d2ba47852dc] method=POST path=/b/adm-rr7-9kt/start format=html controller=RoomsController action=start status=302 duration=498.54 view=0.00 db=37.42 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [f00aab5c-621d-40ad-9211-47d617185d74] Performing NotifyUserWaitingJob (Job ID: f00aab5c-621d-40ad-9211-47d617185d74) from Async(default) with arguments: #<GlobalID:0x000055640b724218 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [f00aab5c-621d-40ad-9211-47d617185d74] Performed NotifyUserWaitingJob (Job ID: f00aab5c-621d-40ad-9211-47d617185d74) from Async(default) in 0.4ms 
+INFO: [1e54bd6f-3401-48ad-9eb8-d0b829dd6b77] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=1122.66 view=36.27 db=291.43 host=greenlight 
+INFO: [08d66815-a9e7-46b4-96bf-21180fb6b66d] method=GET path=/b/u/gl-fpwgkgiklere/recordings format=html controller=UsersController action=recordings status=200 duration=381.99 view=19.16 db=30.32 host=greenlight 
+INFO: [4dac6946-f2d3-4599-8eb3-cd417eb18a01] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=481.87 view=46.52 db=131.75 host=greenlight 
+INFO: [41ac0dad-4284-44d1-b4b3-6d518ac32b19] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=448.94 view=29.23 db=106.78 host=greenlight 
+INFO: [43bf1451-4fc1-48af-a42b-9c5440236aec] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=540.66 view=29.73 db=129.07 host=greenlight 
+INFO: [4f858a54-7afa-4742-8996-1c6ed1970c44] Support: admin@example.com is starting room adm-rr7-9kt 
+INFO: [4f858a54-7afa-4742-8996-1c6ed1970c44] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: b21cbc7d-ceef-4271-9810-0bb9f667f080) to Async(default) at 2020-05-13 13:47:42 UTC with arguments: #<GlobalID:0x000055ea641b1ad0 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [4f858a54-7afa-4742-8996-1c6ed1970c44] method=POST path=/b/adm-rr7-9kt/start format=html controller=RoomsController action=start status=302 duration=481.73 view=0.00 db=48.51 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [b21cbc7d-ceef-4271-9810-0bb9f667f080] Performing NotifyUserWaitingJob (Job ID: b21cbc7d-ceef-4271-9810-0bb9f667f080) from Async(default) with arguments: #<GlobalID:0x000055ea64190218 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [b21cbc7d-ceef-4271-9810-0bb9f667f080] Performed NotifyUserWaitingJob (Job ID: b21cbc7d-ceef-4271-9810-0bb9f667f080) from Async(default) in 6.91ms 
+INFO: [a112fa5a-0281-486f-bcaa-a90672d78514] Support: admin@example.com is starting room adm-rr7-9kt 
+INFO: [a112fa5a-0281-486f-bcaa-a90672d78514] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: 43aee6f3-f714-4187-b894-b149005b139b) to Async(default) at 2020-05-13 13:58:14 UTC with arguments: #<GlobalID:0x000055ea63daf6a8 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [a112fa5a-0281-486f-bcaa-a90672d78514] method=POST path=/b/adm-rr7-9kt/start format=html controller=RoomsController action=start status=302 duration=1879.55 view=0.00 db=124.22 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [43aee6f3-f714-4187-b894-b149005b139b] Performing NotifyUserWaitingJob (Job ID: 43aee6f3-f714-4187-b894-b149005b139b) from Async(default) with arguments: #<GlobalID:0x000055ea63d898b8 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [43aee6f3-f714-4187-b894-b149005b139b] Performed NotifyUserWaitingJob (Job ID: 43aee6f3-f714-4187-b894-b149005b139b) from Async(default) in 0.36ms 
+INFO: [ddd37413-861e-4b26-95d8-d951c5601eaf] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=652.22 view=102.33 db=114.34 host=greenlight 
+INFO: [b5b7430e-b141-43a6-a1bb-831e75083e4b] method=GET path=/b/u/gl-fpwgkgiklere/recordings format=html controller=UsersController action=recordings status=200 duration=506.07 view=49.50 db=68.90 host=greenlight 
+INFO: [0c85e173-0cd6-4e16-b788-797407b1c6d0] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=521.48 view=34.45 db=134.20 host=greenlight 
+INFO: [2fd69060-90d0-420d-a2a0-df54fcf41fee] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=450.48 view=28.43 db=122.15 host=greenlight 
+INFO: [125c6936-1cb7-4cf1-b907-af86d2808cdc] Support: admin@example.com is starting room adm-rr7-9kt 
+INFO: [125c6936-1cb7-4cf1-b907-af86d2808cdc] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: bd919e4a-3d4d-4057-80c8-7c280e40a45e) to Async(default) at 2020-05-13 14:59:27 UTC with arguments: #<GlobalID:0x000055ea63e86180 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [125c6936-1cb7-4cf1-b907-af86d2808cdc] method=POST path=/b/adm-rr7-9kt/start format=html controller=RoomsController action=start status=302 duration=1562.78 view=0.00 db=60.56 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [bd919e4a-3d4d-4057-80c8-7c280e40a45e] Performing NotifyUserWaitingJob (Job ID: bd919e4a-3d4d-4057-80c8-7c280e40a45e) from Async(default) with arguments: #<GlobalID:0x000055ea63e53488 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [bd919e4a-3d4d-4057-80c8-7c280e40a45e] Performed NotifyUserWaitingJob (Job ID: bd919e4a-3d4d-4057-80c8-7c280e40a45e) from Async(default) in 0.32ms 
+INFO: [ee9f3eeb-cd9c-47bb-8bb6-3a13f1cc1adb] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=397.69 view=30.61 db=37.49 host=greenlight 
+INFO: [c6b9ffef-f06b-4278-b71b-c1bd407be604] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=434.10 view=32.55 db=91.44 host=greenlight 
+INFO: [66d58b11-3998-4752-882d-8e651fe01efe] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=526.06 view=25.07 db=98.99 host=greenlight 
+INFO: [8681736e-ca2b-4bdc-b744-ff8b0da1b5ad] Support: admin@example.com is starting room adm-rr7-9kt 
+INFO: [8681736e-ca2b-4bdc-b744-ff8b0da1b5ad] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: b7f64d80-f6b3-4117-ae94-e01a61950af8) to Async(default) at 2020-05-13 15:04:38 UTC with arguments: #<GlobalID:0x000055ea646bf1a8 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [8681736e-ca2b-4bdc-b744-ff8b0da1b5ad] method=POST path=/b/adm-rr7-9kt/start format=html controller=RoomsController action=start status=302 duration=413.71 view=0.00 db=28.60 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [b7f64d80-f6b3-4117-ae94-e01a61950af8] Performing NotifyUserWaitingJob (Job ID: b7f64d80-f6b3-4117-ae94-e01a61950af8) from Async(default) with arguments: #<GlobalID:0x000055ea6468e580 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [b7f64d80-f6b3-4117-ae94-e01a61950af8] Performed NotifyUserWaitingJob (Job ID: b7f64d80-f6b3-4117-ae94-e01a61950af8) from Async(default) in 0.18ms 
+INFO: [a722150c-9d2f-445b-9446-d4713d64c33a] Support: admin@example.com has left room adm-rr7-9kt 
+INFO: [a722150c-9d2f-445b-9446-d4713d64c33a] method=GET path=/b/adm-rr7-9kt/logout format=html controller=RoomsController action=logout status=302 duration=324.59 view=0.00 db=18.82 location=http://localhost:5000/b/adm-rr7-9kt host=greenlight 
+INFO: [b848d018-9ad1-4e9e-8906-730d0806b229] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=584.27 view=27.64 db=92.16 host=greenlight 
+INFO: [202c98ab-ed0d-4d55-b99d-cde8c2f1db70] method=GET path=/b/u/gl-fpwgkgiklere/recordings format=html controller=UsersController action=recordings status=200 duration=317.00 view=20.09 db=16.90 host=greenlight 
+INFO: [5ffcda19-bdef-44ed-bd61-b5c2e391b40b] method=GET path=/b/u/gl-fpwgkgiklere/recordings format=html controller=UsersController action=recordings status=200 duration=364.94 view=23.88 db=18.19 host=greenlight 
+INFO: [1e39deff-4d74-4be7-b03c-13b8aea610eb] method=GET path=/b/u/gl-fpwgkgiklere/recordings format=html controller=UsersController action=recordings status=200 duration=353.06 view=17.72 db=17.15 host=greenlight 
+INFO: [02019467-38bf-40a6-918f-1f1027e75d5c] method=GET path=/b/u/gl-fpwgkgiklere/recordings format=html controller=UsersController action=recordings status=200 duration=347.04 view=16.92 db=17.12 host=greenlight 
+INFO: [dabe54d1-2b3f-40b5-a289-b4ff978675ff] method=GET path=/b/u/gl-fpwgkgiklere/recordings format=html controller=UsersController action=recordings status=200 duration=333.95 view=15.78 db=19.73 host=greenlight 
+INFO: [2a3fabe8-9a84-48fa-8060-07f329729b37] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=441.98 view=29.16 db=97.64 host=greenlight 
+INFO: [689ab996-1d77-4b1d-879d-90327d622dd8] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=432.92 view=23.33 db=86.55 host=greenlight 
+INFO: [41024611-abe3-4bd7-8d7f-7ae35be369a4] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=430.49 view=28.17 db=83.55 host=greenlight 
+INFO: [c50b10d5-0dbc-454c-8317-51a1ed3c2d0a] Support: admin@example.com is starting room adm-rr7-9kt 
+INFO: [c50b10d5-0dbc-454c-8317-51a1ed3c2d0a] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: 2db2e4a1-42bf-41a9-acae-11574b6532ff) to Async(default) at 2020-05-13 15:06:21 UTC with arguments: #<GlobalID:0x000055ea63dadd58 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [c50b10d5-0dbc-454c-8317-51a1ed3c2d0a] method=POST path=/b/adm-rr7-9kt/start format=html controller=RoomsController action=start status=302 duration=482.11 view=0.00 db=20.35 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [2db2e4a1-42bf-41a9-acae-11574b6532ff] Performing NotifyUserWaitingJob (Job ID: 2db2e4a1-42bf-41a9-acae-11574b6532ff) from Async(default) with arguments: #<GlobalID:0x000055ea63d7bbf0 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [2db2e4a1-42bf-41a9-acae-11574b6532ff] Performed NotifyUserWaitingJob (Job ID: 2db2e4a1-42bf-41a9-acae-11574b6532ff) from Async(default) in 0.28ms 
+INFO: [1a10e9ae-889c-4d4f-8b25-a2e48eeea9b8] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=337.38 view=16.93 db=15.36 host=greenlight 
+INFO: [2c86e5f9-dcd7-4ea8-b450-79557e129fd6] method=GET path=/b/u/gl-fpwgkgiklere/recordings format=html controller=UsersController action=recordings status=200 duration=425.78 view=18.80 db=13.51 host=greenlight 
+INFO: [96fcaf67-a0ac-46a4-b4b0-017ed371baf5] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=422.79 view=23.16 db=82.00 host=greenlight 
+INFO: [a58e1832-0c7c-4fd4-86f4-9bbc82ff731c] method=GET path=/b/adm-rr7-9kt format=html controller=RoomsController action=show status=200 duration=407.67 view=20.85 db=69.51 host=greenlight 
+INFO: [65335d3d-385b-4b9d-b034-fd96cb4faa11] Support: admin@example.com is starting room adm-rr7-9kt 
+INFO: [65335d3d-385b-4b9d-b034-fd96cb4faa11] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: 798e685c-0ad6-4cb3-b5f0-c8f53401c28b) to Async(default) at 2020-05-13 15:10:33 UTC with arguments: #<GlobalID:0x000055ea63bf3698 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [65335d3d-385b-4b9d-b034-fd96cb4faa11] method=POST path=/b/adm-rr7-9kt/start format=html controller=RoomsController action=start status=302 duration=500.38 view=0.00 db=20.80 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [798e685c-0ad6-4cb3-b5f0-c8f53401c28b] Performing NotifyUserWaitingJob (Job ID: 798e685c-0ad6-4cb3-b5f0-c8f53401c28b) from Async(default) with arguments: #<GlobalID:0x000055ea63bc5888 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [798e685c-0ad6-4cb3-b5f0-c8f53401c28b] Performed NotifyUserWaitingJob (Job ID: 798e685c-0ad6-4cb3-b5f0-c8f53401c28b) from Async(default) in 0.15ms 
+INFO: [85cfdf5f-e256-42d0-9956-3876deae8468] Support: admin@example.com has created a new room adm-y7z-j7h. 
+INFO: [85cfdf5f-e256-42d0-9956-3876deae8468] method=POST path=/b/ format=html controller=RoomsController action=create status=302 duration=626.50 view=0.00 db=135.49 location=http://localhost:5000/b/adm-y7z-j7h host=greenlight 
+INFO: [83f0c4bb-0caa-44e8-9daa-0519c50343d0] method=GET path=/b/adm-y7z-j7h format=html controller=RoomsController action=show status=200 duration=593.93 view=28.91 db=128.14 host=greenlight 
+INFO: [28a3c027-437d-4b7f-87f0-44a7ba763af2] method=GET path=/b/adm-y7z-j7h format=html controller=RoomsController action=show status=200 duration=513.69 view=27.02 db=129.88 host=greenlight 
+INFO: [4f11c431-bd23-4de1-8766-8c9241eae96d] method=DELETE path=/b/adm-y7z-j7h format=html controller=RoomsController action=destroy status=302 duration=328.03 view=0.00 db=49.49 location=http://localhost:5000/b/adm-ng6-hzm host=greenlight 
+INFO: [f14b5909-7807-4350-94c2-5348203394b6] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=495.72 view=29.65 db=104.58 host=greenlight 
+INFO: [c7b3aabd-1a09-476c-838b-fbb33ba884b4] Support: admin@example.com has created a new room adm-dgq-awy. 
+INFO: [c7b3aabd-1a09-476c-838b-fbb33ba884b4] method=POST path=/b/ format=html controller=RoomsController action=create status=302 duration=328.29 view=0.00 db=26.87 location=http://localhost:5000/b/adm-dgq-awy host=greenlight 
+INFO: [b7e3c56b-eadf-4a7f-b1fc-b216730d8bcb] method=GET path=/b/adm-dgq-awy format=html controller=RoomsController action=show status=200 duration=597.75 view=135.04 db=94.76 host=greenlight 
+INFO: [0cc57d10-daef-4f22-a7b3-59ce984ee5d8] method=GET path=/b/adm-dgq-awy format=html controller=RoomsController action=show status=200 duration=499.59 view=67.62 db=99.95 host=greenlight 
+INFO: [ac53ae19-9665-4ca7-aa0d-6fdfc4c19e45] Support: admin@example.com is starting room adm-dgq-awy 
+INFO: [ac53ae19-9665-4ca7-aa0d-6fdfc4c19e45] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: c7e14d09-aaf7-40b6-affe-e89dd16f88b8) to Async(default) at 2020-05-13 15:34:06 UTC with arguments: #<GlobalID:0x000055ea649b9430 @uri=#<URI::GID gid://greenlight/Room/4>> 
+INFO: [ac53ae19-9665-4ca7-aa0d-6fdfc4c19e45] method=POST path=/b/adm-dgq-awy/start format=html controller=RoomsController action=start status=302 duration=1593.23 view=0.00 db=22.90 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [c7e14d09-aaf7-40b6-affe-e89dd16f88b8] Performing NotifyUserWaitingJob (Job ID: c7e14d09-aaf7-40b6-affe-e89dd16f88b8) from Async(default) with arguments: #<GlobalID:0x000055ea64987c50 @uri=#<URI::GID gid://greenlight/Room/4>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [c7e14d09-aaf7-40b6-affe-e89dd16f88b8] Performed NotifyUserWaitingJob (Job ID: c7e14d09-aaf7-40b6-affe-e89dd16f88b8) from Async(default) in 0.18ms 
+INFO: [d5417552-e0ae-466d-94ed-217602f7ff06] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=375.93 view=15.48 db=102.65 host=greenlight 
+INFO: [518b1628-c534-4667-b151-dab44a46bea2] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=548.46 view=39.31 db=122.17 host=greenlight 
+INFO: [53da8e26-113b-4461-8dc1-4dc3fcae0149] method=GET path=/b/adm-dgq-awy format=html controller=RoomsController action=show status=200 duration=565.85 view=28.13 db=107.33 host=greenlight 
+INFO: [ff2003c7-563b-499d-b2f9-0aecb2c49be5] Support: admin@example.com is joining room adm-dgq-awy 
+INFO: [ff2003c7-563b-499d-b2f9-0aecb2c49be5] method=POST path=/b/adm-dgq-awy format=html controller=RoomsController action=join status=302 duration=410.48 view=0.00 db=49.71 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [b4bdf9c6-cbbe-4aa2-8875-8726ae941ee9] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=361.65 view=10.97 db=80.12 host=greenlight 
+INFO: [b8a9a43e-e0a3-4b76-b99e-83e7d32c714b] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=480.39 view=26.51 db=83.56 host=greenlight 
+INFO: [e392be0b-a123-4145-acbc-73700b0e0914] method=GET path=/b/adm-dgq-awy format=html controller=RoomsController action=show status=200 duration=421.80 view=27.97 db=88.54 host=greenlight 
+INFO: [4cba7c31-97b1-4f6b-9b0e-906d08910dd1] Support: admin@example.com is starting room adm-dgq-awy 
+INFO: [4cba7c31-97b1-4f6b-9b0e-906d08910dd1] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: e512f690-e192-436f-9f7d-035ec16285c3) to Async(default) at 2020-05-13 16:25:21 UTC with arguments: #<GlobalID:0x000055ea6447f348 @uri=#<URI::GID gid://greenlight/Room/4>> 
+INFO: [4cba7c31-97b1-4f6b-9b0e-906d08910dd1] method=POST path=/b/adm-dgq-awy/start format=html controller=RoomsController action=start status=302 duration=1479.39 view=0.00 db=34.45 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [e512f690-e192-436f-9f7d-035ec16285c3] Performing NotifyUserWaitingJob (Job ID: e512f690-e192-436f-9f7d-035ec16285c3) from Async(default) with arguments: #<GlobalID:0x000055ea64466708 @uri=#<URI::GID gid://greenlight/Room/4>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [e512f690-e192-436f-9f7d-035ec16285c3] Performed NotifyUserWaitingJob (Job ID: e512f690-e192-436f-9f7d-035ec16285c3) from Async(default) in 0.18ms 
+INFO: [3cfcb82d-caab-4017-8913-99ae7197b7d7] Support: admin@example.com has left room adm-dgq-awy 
+INFO: [3cfcb82d-caab-4017-8913-99ae7197b7d7] method=GET path=/b/adm-dgq-awy/logout format=html controller=RoomsController action=logout status=302 duration=251.32 view=0.00 db=32.16 location=http://localhost:5000/b/adm-dgq-awy host=greenlight 
+INFO: [0e619d4e-2bcb-4a80-9ea2-9042d2f07244] method=GET path=/b/adm-dgq-awy format=html controller=RoomsController action=show status=200 duration=463.90 view=23.33 db=76.04 host=greenlight 
+INFO: [5db5c3a7-e17e-44e4-a3cd-970c455ecf95] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=784.26 view=18.01 db=195.83 host=greenlight 
+INFO: [9825307a-c1f2-47ce-956e-ccf0b2d55f7f] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=321.41 view=11.64 db=41.15 host=greenlight 
+INFO: [336008a7-5c8e-4e2a-9651-2d67b25f9c40] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=615.29 view=42.05 db=156.09 host=greenlight 
+INFO: [91e5784b-0bbc-4f6e-a121-6f4e2e8e4981] Support: admin@example.com has created a new room adm-cfe-6t7. 
+INFO: [91e5784b-0bbc-4f6e-a121-6f4e2e8e4981] method=POST path=/b/ format=html controller=RoomsController action=create status=302 duration=344.94 view=0.00 db=37.79 location=http://localhost:5000/b/adm-cfe-6t7 host=greenlight 
+INFO: [4ddaf8da-946a-4c16-b6b7-6d978ccb06b9] method=GET path=/b/adm-cfe-6t7 format=html controller=RoomsController action=show status=200 duration=463.59 view=19.01 db=105.13 host=greenlight 
+INFO: [e0da2647-7f26-4dfa-b028-e105007457df] Support: admin@example.com is starting room adm-cfe-6t7 
+INFO: [e0da2647-7f26-4dfa-b028-e105007457df] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: 52995bf9-1857-46f6-9aa9-f4e6bda89f6e) to Async(default) at 2020-05-13 17:16:56 UTC with arguments: #<GlobalID:0x000055717af1c868 @uri=#<URI::GID gid://greenlight/Room/5>> 
+INFO: [e0da2647-7f26-4dfa-b028-e105007457df] method=POST path=/b/adm-cfe-6t7/start format=html controller=RoomsController action=start status=302 duration=1665.34 view=0.00 db=43.48 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [52995bf9-1857-46f6-9aa9-f4e6bda89f6e] Performing NotifyUserWaitingJob (Job ID: 52995bf9-1857-46f6-9aa9-f4e6bda89f6e) from Async(default) with arguments: #<GlobalID:0x000055717aefef70 @uri=#<URI::GID gid://greenlight/Room/5>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [52995bf9-1857-46f6-9aa9-f4e6bda89f6e] Performed NotifyUserWaitingJob (Job ID: 52995bf9-1857-46f6-9aa9-f4e6bda89f6e) from Async(default) in 3.58ms 
+INFO: [8b571f74-3349-4c50-b8bd-f5eb6debc24b] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=44.93 view=23.39 db=9.85 host=greenlight 
+INFO: [efeb9087-6fae-4566-a714-dac1d2219406] method=GET path=/b/adm-cfe-6t7 format=html controller=RoomsController action=show status=200 duration=278.05 view=37.04 db=33.38 host=greenlight 
+INFO: [9a12bac5-65c7-437c-8594-ed2d0dd659b4] Support: df2 is joining room adm-cfe-6t7 
+INFO: [9a12bac5-65c7-437c-8594-ed2d0dd659b4] method=POST path=/b/adm-cfe-6t7 format=html controller=RoomsController action=join status=302 duration=180.98 view=0.00 db=33.73 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [798d5f5a-a508-41c7-8fb2-9bfc53eddf55] Support: admin@example.com has left room adm-cfe-6t7 
+INFO: [798d5f5a-a508-41c7-8fb2-9bfc53eddf55] method=GET path=/b/adm-cfe-6t7/logout format=html controller=RoomsController action=logout status=302 duration=247.55 view=0.00 db=19.31 location=http://localhost:5000/b/adm-cfe-6t7 host=greenlight 
+INFO: [d7c86f36-578b-4571-aa68-0f30fe461ecc] method=GET path=/b/adm-cfe-6t7 format=html controller=RoomsController action=show status=200 duration=417.10 view=20.55 db=71.18 host=greenlight 
+INFO: [7f7e1cde-5ff7-409a-b0ce-9f7b8e717d4f] method=GET path=/b/u/gl-fpwgkgiklere/recordings format=html controller=UsersController action=recordings status=200 duration=311.44 view=19.02 db=14.34 host=greenlight 
+INFO: [3f713c90-a73f-4d03-ba16-3fd382c11b0b] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=411.35 view=29.54 db=73.40 host=greenlight 
+INFO: [319f9e8c-c8e9-48b9-97db-f3f8884d321e] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=323.88 view=13.70 db=17.41 host=greenlight 
+INFO: [b1b6060e-b836-42cc-a1ae-55f91d7434bd] method=GET path=/b/adm-ng6-hzm format=html controller=RoomsController action=show status=200 duration=409.26 view=22.47 db=74.68 host=greenlight 
+INFO: [7ce1a069-a03e-4a6d-99f2-e0a909aa75ca] method=GET path=/b/adm-cfe-6t7 format=html controller=RoomsController action=show status=200 duration=406.13 view=24.87 db=71.32 host=greenlight 
+INFO: [ff358b2d-e177-47c2-9f5f-b57908bed425] Support: admin@example.com is starting room adm-cfe-6t7 
+INFO: [ff358b2d-e177-47c2-9f5f-b57908bed425] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: 3a637a96-5ac5-44be-b0d3-8c98fbc5ba3b) to Async(default) at 2020-05-13 17:20:16 UTC with arguments: #<GlobalID:0x000055717b41e208 @uri=#<URI::GID gid://greenlight/Room/5>> 
+INFO: [ff358b2d-e177-47c2-9f5f-b57908bed425] method=POST path=/b/adm-cfe-6t7/start format=html controller=RoomsController action=start status=302 duration=460.27 view=0.00 db=17.54 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [3a637a96-5ac5-44be-b0d3-8c98fbc5ba3b] Performing NotifyUserWaitingJob (Job ID: 3a637a96-5ac5-44be-b0d3-8c98fbc5ba3b) from Async(default) with arguments: #<GlobalID:0x000055717b401270 @uri=#<URI::GID gid://greenlight/Room/5>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [3a637a96-5ac5-44be-b0d3-8c98fbc5ba3b] Performed NotifyUserWaitingJob (Job ID: 3a637a96-5ac5-44be-b0d3-8c98fbc5ba3b) from Async(default) in 0.13ms 
+INFO: [7ac33560-76e7-4f86-b87c-8adcb3050c76] method=GET path=/b/adm-cfe-6t7 format=html controller=RoomsController action=show status=200 duration=450.36 view=27.98 db=81.89 host=greenlight 
+INFO: [762e97d4-6090-4e06-b6d8-9d8af9459107] method=GET path=/b/adm-cfe-6t7 format=html controller=RoomsController action=show status=200 duration=134.77 view=14.34 db=27.20 host=greenlight 
+INFO: [8aced968-4088-401c-8858-6bfc19503002] Support: test is joining room adm-cfe-6t7 
+INFO: [8aced968-4088-401c-8858-6bfc19503002] method=POST path=/b/adm-cfe-6t7 format=html controller=RoomsController action=join status=302 duration=147.52 view=0.00 db=13.13 location=https://scalelite.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [52ea8a67-67ab-4354-bbfb-cbd23468a59d] method=GET path=/b/adm-dgq-awy format=html controller=RoomsController action=show status=200 duration=693.87 view=40.65 db=178.65 host=greenlight 
+INFO: [ec6c463c-94e4-411d-9706-8026a1d86480] method=GET path=/b/ format=html controller=MainController action=index status=200 duration=571.39 view=370.72 db=143.59 host=greenlight 
+INFO: [79922d7f-fb10-4eed-94e5-7ee695fed8d3] method=GET path=/b/signin format=html controller=SessionsController action=signin status=200 duration=39.23 view=19.79 db=9.79 host=greenlight 
+INFO: [fc8db5bd-b817-4eea-abc6-92aa90c8187d] Support: admin is attempting to login. 
+INFO: [fc8db5bd-b817-4eea-abc6-92aa90c8187d] method=POST path=/b/u/login format=html controller=SessionsController action=create status=302 duration=27.11 view=0.00 db=16.34 location=http://localhost:5000/b/signin host=greenlight 
+INFO: [b2e3fedc-9c40-4f2b-81af-71abf23f3ad2] method=GET path=/b/signin format=html controller=SessionsController action=signin status=200 duration=38.13 view=19.71 db=11.47 host=greenlight 
+INFO: [f49714f1-5e05-4373-ba53-4d5d3c9c043c] Support: admin@example.com is attempting to login. 
+INFO: [f49714f1-5e05-4373-ba53-4d5d3c9c043c] method=POST path=/b/u/login format=html controller=SessionsController action=create status=302 duration=23.60 view=0.00 db=14.30 location=http://localhost:5000/b/signin host=greenlight 
+INFO: [3bf127f4-c934-43f4-9a83-f48445e66371] method=GET path=/b/signin format=html controller=SessionsController action=signin status=200 duration=27.30 view=18.17 db=2.37 host=greenlight 
+INFO: [2efdc78e-d4a3-4720-b2c9-ee01deb588a4] Support: admin@example.com is attempting to login. 
+INFO: [2efdc78e-d4a3-4720-b2c9-ee01deb588a4] method=POST path=/b/u/login format=html controller=SessionsController action=create status=302 duration=25.16 view=0.00 db=11.55 location=http://localhost:5000/b/signin host=greenlight 
+INFO: [3a7d266b-8ba2-4611-b2b9-18578b71e53a] method=GET path=/b/signin format=html controller=SessionsController action=signin status=200 duration=30.13 view=21.66 db=2.41 host=greenlight 
+INFO: [6a7a3a35-4f1b-4389-8d81-6bc868354166] Support: admin@example.com is attempting to login. 
+INFO: [6a7a3a35-4f1b-4389-8d81-6bc868354166] Support: admin@example.com has successfully logged in. 
+INFO: [6a7a3a35-4f1b-4389-8d81-6bc868354166] method=POST path=/b/u/login format=html controller=SessionsController action=create status=302 duration=361.45 view=0.00 db=92.27 location=http://localhost:5000/b/adm-vrz-t3u host=greenlight 
+INFO: [6b11c6f6-da51-4317-9893-c98ad57e551a] method=GET path=/b/adm-vrz-t3u format=html controller=RoomsController action=show status=200 duration=693.35 view=48.91 db=136.51 host=greenlight 
+INFO: [705ff753-b573-42b0-b0f9-cd8874eebb0b] Support: admin@example.com has created a new room adm-rvx-uyy. 
+INFO: [705ff753-b573-42b0-b0f9-cd8874eebb0b] method=POST path=/b/ format=html controller=RoomsController action=create status=302 duration=350.95 view=0.00 db=30.16 location=http://localhost:5000/b/adm-rvx-uyy host=greenlight 
+INFO: [e3fd05fb-1ead-4d47-b342-fc50fafd6ddd] method=GET path=/b/adm-rvx-uyy format=html controller=RoomsController action=show status=200 duration=539.72 view=29.93 db=99.45 host=greenlight 
+INFO: [366cdf48-023f-4279-86fc-709eb481df8f] method=GET path=/b/adm-rvx-uyy format=html controller=RoomsController action=show status=200 duration=1023.53 view=24.24 db=94.08 host=greenlight 
+INFO: [4d4de896-19de-471e-8fd4-11876b4dfff7] Support: admin@example.com is starting room adm-rvx-uyy 
+INFO: [4d4de896-19de-471e-8fd4-11876b4dfff7] [ActiveJob] Enqueued NotifyUserWaitingJob (Job ID: cd53adff-7a18-4da0-8433-53779617eb7b) to Async(default) at 2020-05-28 16:07:56 UTC with arguments: #<GlobalID:0x000055ee6448a410 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [4d4de896-19de-471e-8fd4-11876b4dfff7] method=POST path=/b/adm-rvx-uyy/start format=html controller=RoomsController action=start status=302 duration=2383.02 view=0.00 db=34.79 location=https://scalelite-dev.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [cd53adff-7a18-4da0-8433-53779617eb7b] Performing NotifyUserWaitingJob (Job ID: cd53adff-7a18-4da0-8433-53779617eb7b) from Async(default) with arguments: #<GlobalID:0x000055ee64470b78 @uri=#<URI::GID gid://greenlight/Room/2>> 
+INFO: [ActiveJob] [NotifyUserWaitingJob] [cd53adff-7a18-4da0-8433-53779617eb7b] Performed NotifyUserWaitingJob (Job ID: cd53adff-7a18-4da0-8433-53779617eb7b) from Async(default) in 9.24ms 
+INFO: [a977c0c8-75ab-4aeb-8009-7ae3572726bf] method=GET path=/b/adm-rvx-uyy format=html controller=RoomsController action=show status=200 duration=382.17 view=31.55 db=26.93 host=greenlight 
+INFO: [8b480fca-8924-42bf-99f1-75c48376820e] Support: df1 is joining room adm-rvx-uyy 
+INFO: [8b480fca-8924-42bf-99f1-75c48376820e] method=POST path=/b/adm-rvx-uyy format=html controller=RoomsController action=join status=302 duration=281.14 view=0.00 db=26.22 location=https://scalelite-dev.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [17d76ca9-afd5-40ed-8466-939a10a258f1] method=GET path=/b/adm-rvx-uyy format=html controller=RoomsController action=show status=200 duration=248.73 view=20.79 db=8.36 host=greenlight 
+INFO: [39946bf4-7a10-4c62-8b7a-52d43b2b4d95] Support: df2 is joining room adm-rvx-uyy 
+INFO: [39946bf4-7a10-4c62-8b7a-52d43b2b4d95] method=POST path=/b/adm-rvx-uyy format=html controller=RoomsController action=join status=302 duration=247.09 view=0.00 db=7.82 location=https://scalelite-dev.bbb.messenger.schule/bigbluebutton/api/join host=greenlight 
+INFO: [d50aadd5-2963-4d3e-818a-0392b8b1a646] method=GET path=/b/adm-rvx-uyy format=html controller=RoomsController action=show status=200 duration=265.28 view=24.74 db=8.97 host=greenlight 
+INFO: [df860e82-202f-421d-b2ec-d5c54df09991] Support: admin@example.com has left room adm-rvx-uyy 
+INFO: [df860e82-202f-421d-b2ec-d5c54df09991] method=GET path=/b/adm-rvx-uyy/logout format=html controller=RoomsController action=logout status=302 duration=255.98 view=0.00 db=25.17 location=http://localhost:5000/b/adm-rvx-uyy host=greenlight 
+INFO: [3266cf22-1f1f-4957-8ef3-fcfc8ef6ff2a] method=GET path=/b/adm-rvx-uyy format=html controller=RoomsController action=show status=200 duration=570.40 view=28.14 db=70.80 host=greenlight 
+INFO: [1ab0244a-f9e9-4f0e-98b7-b41eb5a179b3] method=GET path=/b/u/gl-fpxdojrheatu/recordings format=html controller=UsersController action=recordings status=200 duration=372.14 view=15.99 db=17.49 host=greenlight 
+INFO: [e7098516-f065-4697-991f-6c2260f418a1] method=GET path=/b/adm-vrz-t3u format=html controller=RoomsController action=show status=200 duration=529.48 view=23.63 db=76.11 host=greenlight 
+INFO: [92e66dc3-ae12-4dbf-af4b-374d101ab03c] method=GET path=/b/u/gl-fpxdojrheatu/recordings format=html controller=UsersController action=recordings status=200 duration=381.90 view=24.98 db=18.91 host=greenlight 

@@ -1,0 +1,14 @@
+URL_HOST=###hostname###
+# Erstellt mit 'openssl rand -hex 64'
+SECRET_KEY_BASE=###scalelite_secret_key_base###
+# Erstellt mit 'openssl rand -hex 32'
+LOADBALANCER_SECRET=###scalelite_loadbalancer_secret###
+
+DATABASE_URL=postgresql://postgres:###scalelite_pg_password###@###scalelite_secondaryip###:5432
+# Sollte lt. https://rubydoc.info/github/redis/redis-rb/master/Redis#initialize-instance_method
+# in dieser Form sein: redis://:[password]@[hostname] sein.
+REDIS_URL=redis://###redis_url###
+SCALELITE_TAG=v1
+SCALELITE_RECORDING_DIR=/mnt/scalelite-recordings/var/bigbluebutton
+NGINX_SSL=true
+SCALELITE_NGINX_EXTRA_OPTS=--mount type=bind,source=/etc/letsencrypt,target=/etc/nginx/ssl,readonly

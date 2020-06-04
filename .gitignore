@@ -1,0 +1,20 @@
+# Ignore Mac system files
+.DS_store
+
+# Local .terraform directories
+**/.terraform/*
+terraform.txt
+.terraform/
+
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+*.pem
+keys/
+secrets.tfvars
+cert/
+
+./key/*
+testing/db

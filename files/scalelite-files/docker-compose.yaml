@@ -1,0 +1,129 @@
+version: '3'
+
+volumes:
+  postgres-data:
+  redis-data:
+
+services:
+  db:
+    image: postgres:11.5-alpine
+    container_name: db
+    restart: unless-stopped
+    ports:
+      - "127.0.0:5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_HOST: db
+
+  redis:
+    image: redis:5.0-alpine
+    container_name: redis
+    restart: on-failure
+    ports:
+      - 127.0.0.1:6379:6379
+    volumes:
+      - redis-data:/data
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./log/certbot:/var/log/letsencrypt
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+  scalelite-nginx:
+    image: ${SCALELITE_REPO:-blindsidenetwks}/scalelite:${SCALELITE_TAG:-v1}-nginx
+    container_name: scalelite-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./log/nginx/:/var/log/nginx
+      - ./data/cert:/etc/nginx/ssl
+      - ./data/certbot/www:/var/www/certbot
+      - ./data/nginx/scalelite:/etc/nginx/conf.d/scalelite
+      - ./data/nginx/scalelite.conf:/etc/nginx/conf.d/scalelite.conf
+      - ${SCALELITE_RECORDING_DIR-/mnt/scalelite-recordings/var/bigbluebutton}/published:/var/bigbluebutton/published
+    environment:
+      - NGINX_SSL=${NGINX_SSL-true}
+      - URL_HOST=${URL_HOST}
+    depends_on:
+      - scalelite-api
+
+  scalelite-api:
+    image: ${SCALELITE_REPO:-blindsidenetwks}/scalelite:${SCALELITE_TAG:-v1}-api
+    container_name: scalelite-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./log/scalelite/:/app/log
+      - ${SCALELITE_RECORDING_DIR-/mnt/scalelite-recordings/var/bigbluebutton}:/var/bigbluebutton
+    environment:
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+      - LOADBALANCER_SECRET=${LOADBALANCER_SECRET}
+      - REDIS_URL=${REDIS_URL}
+      - DATABASE_URL=${DATABASE_URL}
+      - URL_HOST=${URL_HOST}
+    depends_on:
+      - db
+      - redis
+    logging:
+      driver: journald
+
+  scalelite-poller:
+    image: ${SCALELITE_REPO:-blindsidenetwks}/scalelite:${SCALELITE_TAG:-v1}-poller
+    container_name: scalelite-poller
+    restart: unless-stopped
+    environment:
+      - REDIS_URL=${REDIS_URL}
+      - DATABASE_URL=${DATABASE_URL}
+    depends_on:
+      - db
+      - redis
+      - scalelite-api
+    logging:
+      driver: journald
+
+  scalelite-recording-importer:
+    image: ${SCALELITE_REPO:-blindsidenetwks}/scalelite:${SCALELITE_TAG:-v1}-recording-importer
+    container_name: scalelite-recording-importer
+    restart: unless-stopped
+    environment:
+      - REDIS_URL=${REDIS_UR}
+      - DATABASE_URL=${DATABASE_URL}
+    volumes:
+      - ${SCALELITE_RECORDING_DIR-/mnt/scalelite-recordings/var/bigbluebutton}:/var/bigbluebutton
+      - ${SCALELITE_RECORDING_DIR-/mnt/scalelite-recordings/var/bigbluebutton}/spool:/var/bigbluebutton/spool
+    depends_on:
+      - db
+      - redis
+      - scalelite-api
+    logging:
+      driver: journald
+
+  bbb-autoscaler:
+    image: keithschuijlenburg0thinkport/bbb-autoscaler:latest
+    container_name: bbb-autoscaler
+    restart: unless-stopped
+    environment:
+      - IONOS_USER=${IONOS_USER}
+      - IONOS_PASS=${IONOS_PW}
+      - IONOS_DATACENTER=${DATACENTER}
+      - MINIMUM_ACTIVE_MACHINES=${MINIMUM_ACTIVE_MACHINES}
+      - WAITINGTIME=${WAITINGTIME}
+      - MAX_ALLOWED_WORKLOAD=${MAX_ALLOWED_WORKLOAD}
+      - MIN_ALLOWED_WORKLOAD=${MIN_ALLOWED_WORKLOAD}
+      - MAX_WORKER_MEMORY=${MAX_WORKER_MEMORY}
+      - DEFAULT_WORKER_MEMORY=${DEFAULT_WORKER_MEMORY}
+      - BBB_PASS=${LOADBALANCER_SECRET}
+      - GRAFANA_TOKEN=${GRAFANA_TOKEN}
+    logging:
+      driver: journald
