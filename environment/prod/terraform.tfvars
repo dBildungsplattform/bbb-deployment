@@ -1,17 +1,22 @@
 #
 # AUTOSCALER
 #
+
 autoscaler_min_active_machines=3
-autoscaler_waitingtime=300000 # 5min
-autoscaler_max_allowed_workload=0.80
-autoscaler_min_allowed_workload=0.22
+autoscaler_waitingtime=300000 # 3min
+autoscaler_max_allowed_memory_workload=0.80
+autoscaler_min_allowed_memory_workload=0.22
 autoscaler_max_worker_memory=16384
+autoscaler_max_allowed_cpu_workload=0.80
+autoscaler_min_allowed_cpu_workload=0.20
+autoscaler_max_worker_cpu=2
 
 #
 # SCALING
 #
 bbb_server_count = 25
 bbb_server_memory=12288
+bbb_server_cpu=2
 scalelite_server_count = 1
 
 #

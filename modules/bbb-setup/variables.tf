@@ -11,12 +11,13 @@ variable "autoscaler_waitingtime" {
   description = "timeframe which autoscaler will check cluster"
 }
 
-variable "autoscaler_max_allowed_workload" {
+## memory
+variable "autoscaler_max_allowed_memory_workload" {
   type        = number
   description = "percentage at which new machines will be started or scaled up"
 }
 
-variable "autoscaler_min_allowed_workload" {
+variable "autoscaler_min_allowed_memory_workload" {
   type        = number
   description = "percentage at which existing machines will be stopped or scaled down"
 }
@@ -24,6 +25,22 @@ variable "autoscaler_min_allowed_workload" {
 variable "autoscaler_max_worker_memory" {
   type        = number
   description = "max amount of memory autoscaler is able to increase"
+}
+
+## cpu
+variable "autoscaler_max_allowed_cpu_workload" {
+  type        = number
+  description = "percentage at which new machines will be started or scaled up"
+}
+
+variable "autoscaler_min_allowed_cpu_workload" {
+  type        = number
+  description = "percentage at which existing machines will be stopped or scaled down"
+}
+
+variable "autoscaler_max_worker_cpu" {
+  type        = number
+  description = "max amount of cpu autoscaler is able to increase"
 }
 
 variable "autoscaler_grafana_token" {
@@ -99,6 +116,12 @@ variable "bbb_server_memory" {
   description = "memory of bbb server"
 }
 
+variable "bbb_server_cpu" {
+  type        = number
+  description = "cpu of bbb server"
+}
+
+
 variable "scalelite_server_count" {
   type        = number
   description = "number of scalelite-servers"
@@ -126,6 +149,17 @@ variable "bbb_reserved_ips" {
 variable "scalelite_reserved_ips" {
   type    = list(string)
 }
+
+# from secrets.tfvars
+variable "ne_user" {
+  type    = string
+}
+
+# from secrets.tfvars
+variable "ne_pw" {
+  type    = string
+}
+
 
 #
 # MIDDLEWEAR

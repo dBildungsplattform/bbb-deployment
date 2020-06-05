@@ -5,7 +5,7 @@
 **/.terraform/*
 terraform.txt
 .terraform/
-
+admin.dat
 
 # .tfstate files
 *.tfstate

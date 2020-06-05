@@ -3,7 +3,7 @@ resource "profitbricks_server" "bbb_server" {
   count             = var.bbb_server_count
   name              = "bbb${var.prefix}-server${count.index + 1}"
   datacenter_id     = var.datacenter
-  cores             = 2
+  cores             = var.bbb_server_cpu
   ram               = var.bbb_server_memory
   availability_zone = count.index % 2 == 1 ? "ZONE_1" : "ZONE_2"
   cpu_family        = "INTEL_XEON"
@@ -119,10 +119,28 @@ resource "null_resource" "provisioner-bbb" {
       "sudo ./register-bbb.sh ${var.domainname} scalelite${var.prefix} ~/.ssh/hpi${var.prefix}-pk",
 
       # install node exporter
+      "sudo apt install apache2-utils -q -y",
       "sudo ufw allow 9100",
+
+      # create basic auth user + passwort
+      "htpasswd -b -B -C 10 -c ~/password.dat ${var.ne_user} ${var.ne_pw}",
+
+      "sudo mv /tmp/nodeexporter_webconfig.yml /usr/local/bin/nodeExporter_webconfig.yml",
       "sudo mv /tmp/installNodeExporter.sh ~",
       "sudo chmod a+x ~/installNodeExporter.sh",
-      "sudo ~/installNodeExporter.sh"
+      "sudo ~/installNodeExporter.sh ~/password.dat",
+      "sudo chown node_exporter:node_exporter /usr/local/bin/nodeExporter_webconfig.yml",
+      "sudo mkdir -p /etc/node_exporter",
+      "sudo chown node_exporter:node_exporter /etc/node_exporter",
+      "sudo chmod 700 /etc/node_exporter",
+      "sudo cp /etc/letsencrypt/live/bbb.messenger.schule/fullchain.pem /etc/node_exporter/fullchain.pem",
+      "sudo cp /etc/letsencrypt/live/bbb.messenger.schule/privkey.pem /etc/node_exporter/privkey.pem",
+      "sudo chown node_exporter:node_exporter /etc/node_exporter/*.pem",
+      "sudo systemctl enable node_exporter",
+      "sudo systemctl start node_exporter",
+      
+      # cleanup
+      "rm password.dat"
     ]
   }
 }

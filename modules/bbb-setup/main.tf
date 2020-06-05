@@ -101,13 +101,18 @@ resource "null_resource" "provisioner_scale" {
       "sudo sed -i 's/###ionos_pw###/${var.hpi_ionos_pw}/g' ~/.env",
       "sudo sed -i 's/###min_active_machines###/${var.autoscaler_min_active_machines}/g' ~/.env",
       "sudo sed -i 's/###waitingtime###/${var.autoscaler_waitingtime}/g' ~/.env",
-      "sudo sed -i 's/###max_allowed_workload###/${var.autoscaler_max_allowed_workload}/g' ~/.env",
-      "sudo sed -i 's/###min_allowed_workload###/${var.autoscaler_min_allowed_workload}/g' ~/.env",
+      "sudo sed -i 's/###max_allowed_memory_workload###/${var.autoscaler_max_allowed_memory_workload}/g' ~/.env",
+      "sudo sed -i 's/###min_allowed_memory_workload###/${var.autoscaler_min_allowed_memory_workload}/g' ~/.env",
+      "sudo sed -i 's/###max_allowed_cpu_workload###/${var.autoscaler_max_allowed_cpu_workload}/g' ~/.env",
+      "sudo sed -i 's/###min_allowed_cpu_workload###/${var.autoscaler_min_allowed_cpu_workload}/g' ~/.env",
       "sudo sed -i 's/###max_worker_memory###/${var.autoscaler_max_worker_memory}/g' ~/.env",
+      "sudo sed -i 's/###max_worker_cpu###/${var.autoscaler_max_worker_cpu}/g' ~/.env",
       "sudo sed -i 's/###default_worker_memory###/${var.bbb_server_memory}/g' ~/.env",
+      "sudo sed -i 's/###default_worker_cpu###/${var.bbb_server_cpu}/g' ~/.env",
       "sudo sed -i 's/###grafana_token###/${var.autoscaler_grafana_token}/g' ~/.env",
+      "sudo sed -i 's/###ne_basic_auth_user###/${var.ne_user}/g' ~/.env",
+      "sudo sed -i 's/###ne_basic_auth_pass###/${var.ne_pw}/g' ~/.env",
       
-
       // move data certificates and nginx files
       "sudo mv -f /tmp/data/ ~/",
       "sudo mv -f ~/data/cert/live/scalelite.bbb.messenger.schule/ ~/data/cert/live/scalelite${var.prefix}.${var.domainname}/",
@@ -121,9 +126,27 @@ resource "null_resource" "provisioner_scale" {
       "docker exec -it scalelite-api bin/rake db:setup",
 
       # install node exporter
+      # create basic auth user + passwort
+      "sudo apt install apache2-utils -q -y",
+      #htpasswd -nBC 10 "" | tr -d ':\n'
+      "htpasswd -b -B -C 10 -c password.dat ${var.ne_user} ${var.ne_pw}",
+
+      "sudo mv /tmp/nodeexporter_webconfig.yml /usr/local/bin/nodeExporter_webconfig.yml",
       "sudo mv /tmp/installNodeExporter.sh ~",
       "sudo chmod a+x ~/installNodeExporter.sh",
-      "sudo ~/installNodeExporter.sh"
+      "sudo ~/installNodeExporter.sh ~/password.dat",
+      "sudo chown node_exporter:node_exporter /usr/local/bin/nodeExporter_webconfig.yml",
+      "sudo mkdir -p /etc/node_exporter",
+      "sudo chown node_exporter:node_exporter /etc/node_exporter",
+      "sudo chmod 700 /etc/node_exporter",
+      "sudo cp ~/data/cert/live/scalelite${var.prefix}.${var.domainname}/fullchain.pem /etc/node_exporter/fullchain.pem",
+      "sudo cp ~/data/cert/live/scalelite${var.prefix}.${var.domainname}/privkey.pem /etc/node_exporter/privkey.pem",
+      "sudo chown node_exporter:node_exporter /etc/node_exporter/*.pem",
+      "sudo systemctl enable node_exporter",
+      "sudo systemctl start node_exporter",
+
+      # cleanup
+      "rm password.dat"
     ]
   }
 }

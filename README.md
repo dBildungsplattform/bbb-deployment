@@ -61,9 +61,11 @@ turnServerPw=<TURN SERVER PW>
 scalite_secret=<SCALELITE GENERATED SECRET> # openssl rand -hex 64
 scalite_secret_lb=<SCALELITE GENERATED SECRET> openssl rand -hex 32
 bbb_reserved_ips=<LIST OF RESERVED BBB SERVER IPs> #[""]
-scalite_redisurl="<REDIS URL>"
+scalite_redisurl=<REDIS URL>
 scalelite_reserved_ips=<LIST OF RESERVED SCALELITE SERVER IPs> #[""]
 scalite_pg_pw=<SCALELITE POSTGRES PW>
+ne_user = <Node Exporter Basic Auth user>
+ne_pw = <Node Exporter Basic Auth password>
 ```
 
 ### 2. adjust values in terraform.tfvars
@@ -119,29 +121,29 @@ example:
 #
 autoscaler_min_active_machines=2
 autoscaler_waitingtime=300000 # 3min
-autoscaler_max_allowed_workload=0.85
-autoscaler_min_allowed_workload=0.15
+autoscaler_max_allowed_memory_workload=0.85
+autoscaler_min_allowed_memory_workload=0.15
 autoscaler_max_worker_memory=16384
-autoscaler_max_worker_cpu=
-autoscaler_max_allowed_cpu_workload=
-autoscaler_min_allowed_cpu_workload=
+autoscaler_max_worker_cpu=4
+autoscaler_max_allowed_cpu_workload=0.85
+autoscaler_min_allowed_cpu_workload=0.15
 ```
 
 See all the parameters in the [docker-compose.yaml](files/scalelite-files/docker-compose.yaml) file 
 ```yaml
-      - IONOS_USER=${IONOS_USER}
-      - IONOS_PASS=${IONOS_PW}
-      - IONOS_DATACENTER=${DATACENTER}
-      - MINIMUM_ACTIVE_MACHINES=${MINIMUM_ACTIVE_MACHINES}
-      - WAITINGTIME=${WAITINGTIME}
-      - MAX_ALLOWED_WORKLOAD=${MAX_ALLOWED_WORKLOAD}
-      - MIN_ALLOWED_WORKLOAD=${MIN_ALLOWED_WORKLOAD}
-      - MAX_WORKER_MEMORY=${MAX_WORKER_MEMORY}
-      - DEFAULT_WORKER_MEMORY=${DEFAULT_WORKER_MEMORY}
-      - BBB_PASS=${LOADBALANCER_SECRET}
-      - GRAFANA_TOKEN=${GRAFANA_TOKEN}
-      - DEFAULT_WORKER_CPU=
-      - MAX_WORKER_CPU=
-      - MIN_ALLOWED_CPU_WORKLOAD=
-      - MAX_ALLOWED_CPU_WORKLOAD=
+- IONOS_USER=${IONOS_USER}
+- IONOS_PASS=${IONOS_PW}
+- IONOS_DATACENTER=${DATACENTER}
+- MINIMUM_ACTIVE_MACHINES=${MINIMUM_ACTIVE_MACHINES}
+- WAITINGTIME=${WAITINGTIME}
+- MAX_ALLOWED_MEMORY_WORKLOAD=${MAX_ALLOWED_MEMORY_WORKLOAD}
+- MIN_ALLOWED_MEMORY_WORKLOAD=${MIN_ALLOWED_MEMORY_WORKLOAD}
+- MAX_ALLOWED_CPU_WORKLOAD=${MAX_ALLOWED_CPU_WORKLOAD}
+- MIN_ALLOWED_CPU_WORKLOAD=${MIN_ALLOWED_CPU_WORKLOAD}
+- MAX_WORKER_MEMORY=${MAX_WORKER_MEMORY}
+- MAX_WORKER_CPU=${MAX_WORKER_CPU}
+- DEFAULT_WORKER_MEMORY=${DEFAULT_WORKER_MEMORY}
+- DEFAULT_WORKER_CPU=${DEFAULT_WORKER_CPU}
+- BBB_PASS=${LOADBALANCER_SECRET}
+- GRAFANA_PASS=${GRAFANA_PASS}
 ```
