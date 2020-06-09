@@ -35,4 +35,5 @@ module "bbb-setup" {
   autoscaler_min_allowed_cpu_workload=var.autoscaler_min_allowed_cpu_workload
   autoscaler_max_worker_cpu=var.autoscaler_max_worker_cpu
   autoscaler_grafana_token=var.autoscaler_grafana_token
+  autoscaler_grafana_endpoint=var.autoscaler_grafana_endpoint
 }

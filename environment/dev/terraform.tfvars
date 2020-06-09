@@ -6,9 +6,9 @@ autoscaler_waitingtime=300000 # 3min
 autoscaler_max_allowed_memory_workload=0.85
 autoscaler_min_allowed_memory_workload=0.32
 autoscaler_max_worker_memory=16384
-autoscaler_max_allowed_cpu_workload=0.85
-autoscaler_min_allowed_cpu_workload=0.15
-autoscaler_max_worker_cpu=2
+autoscaler_max_allowed_cpu_workload=0.70
+autoscaler_min_allowed_cpu_workload=0.005
+autoscaler_max_worker_cpu=4
 
 
 #

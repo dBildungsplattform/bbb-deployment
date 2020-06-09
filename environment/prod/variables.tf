@@ -48,6 +48,11 @@ variable "autoscaler_grafana_token" {
   description = "generated grafana token for access to prometheus api"
 }
 
+variable "autoscaler_grafana_endpoint" {
+  type    = string
+  description = "Grafana endpoint for access to prometheus api"
+}
+
 #
 # IONOS LOGIN
 #

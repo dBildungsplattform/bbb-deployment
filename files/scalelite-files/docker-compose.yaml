@@ -97,7 +97,7 @@ services:
     container_name: scalelite-recording-importer
     restart: unless-stopped
     environment:
-      - REDIS_URL=${REDIS_UR}
+      - REDIS_URL=${REDIS_URL}
       - DATABASE_URL=${DATABASE_URL}
     volumes:
       - ${SCALELITE_RECORDING_DIR-/mnt/scalelite-recordings/var/bigbluebutton}:/var/bigbluebutton
@@ -129,6 +129,7 @@ services:
       - DEFAULT_WORKER_CPU=${DEFAULT_WORKER_CPU}
       - BBB_PASS=${LOADBALANCER_SECRET}
       - GRAFANA_PASS=${GRAFANA_PASS}
+      - GRAFANA_ENDPOINT=${GRAFANA_ENDPOINT}
       - NE_BASIC_AUTH_USER=${NE_BASIC_AUTH_USER}
       - NE_BASIC_AUTH_PASS=${NE_BASIC_AUTH_PASS}
       

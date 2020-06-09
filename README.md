@@ -146,4 +146,30 @@ See all the parameters in the [docker-compose.yaml](files/scalelite-files/docker
 - DEFAULT_WORKER_CPU=${DEFAULT_WORKER_CPU}
 - BBB_PASS=${LOADBALANCER_SECRET}
 - GRAFANA_PASS=${GRAFANA_PASS}
+- GRAFANA_ENDPOINT=${GRAFANA_ENDPOINT}
+```
+## Monitoring
+
+The metrics, from the installed [node-exporter](https://github.com/prometheus/node_exporter) setup, are crawled from the [prometheus installation for jitsi](https://github.com/schul-cloud/jitsi-deployment/blob/master/docs/architecture/architecture.md#monitoring) in kubernetes. 
+
+The metrics per machine, are available at:
+
+```url
+https://<url>:9100/metrics
+```
+
+### Security
+
+1. The node-exporter endpoint exposing its metrics via HTTPS
+2. The REST call has a BASIC AUTH in place.
+3. The password in the corresponding config file is hashed
+
+```yaml
+tls_server_config:
+    # Certificate and key files for server to use to authenticate to client
+    cert_file: /path/to/cert.pem
+    key_file:  /path/to/key.pem
+
+basic_auth_users:
+    username: hashedPassword
 ```

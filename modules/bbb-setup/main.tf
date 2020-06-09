@@ -110,6 +110,7 @@ resource "null_resource" "provisioner_scale" {
       "sudo sed -i 's/###default_worker_memory###/${var.bbb_server_memory}/g' ~/.env",
       "sudo sed -i 's/###default_worker_cpu###/${var.bbb_server_cpu}/g' ~/.env",
       "sudo sed -i 's/###grafana_token###/${var.autoscaler_grafana_token}/g' ~/.env",
+      "sudo sed -i 's/###grafana_endpoint###/${var.autoscaler_grafana_endpoint}/g' ~/.env",
       "sudo sed -i 's/###ne_basic_auth_user###/${var.ne_user}/g' ~/.env",
       "sudo sed -i 's/###ne_basic_auth_pass###/${var.ne_pw}/g' ~/.env",
       
