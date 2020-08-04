@@ -174,7 +174,9 @@ basic_auth_users:
     username: hashedPassword
 ```
 
-### 5. secure keys
+## Post steps
+
+### 1. secure keys
 
 secure locally saved keys to 1password
 - keys/hpi[-dev]-pk
