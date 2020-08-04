@@ -24,7 +24,7 @@ scalelite_server_count = 1
 #
 domainname  = "bbb.messenger.schule"
 location = "de/fra"
-bbbEmail = "jan.renz@hpi.de"
+bbbEmail = "devops@schul-cloud.org"
 prefix = ""
 ubuntu = "ubuntu-16.04"
 turnServerUrl = "turn.bigbluebutton.schul-cloud.org"
