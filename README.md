@@ -77,6 +77,9 @@ add your letsencrypt cert folder to
 - files/bbb-files/cert
 - files/scalelite-files/data/cert
 
+#### 3.1 add keys
+add your keys to keys. Don't forget copy pubkeys into keys/authorized_keys
+
 ### 4. start Terraform
 
 ```bash
