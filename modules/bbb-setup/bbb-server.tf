@@ -91,6 +91,8 @@ resource "null_resource" "provisioner-bbb" {
       "sudo sed -e 's|url: http://|url: https://|g' -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml",
       "sudo sed -e 's|playback_protocol: http|playback_protocol: https|g' -i /usr/local/bigbluebutton/core/scripts/bigbluebutton.yml",
       "sudo sed -e 's|http://|https://|g' -i /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties",
+      "sudo sed -e 's|disableRecordingDefault=false|disableRecordingDefault=true|g' -i /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties",
+      "sudo sed -e 's|breakoutRoomsRecord=true|breakoutRoomsRecord=false|g' -i /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties",
       "sudo sed -e 's|http://|https://|g' -i /etc/bigbluebutton/nginx/sip.nginx",
       "sudo sed -e 's|5066|7443|g' -i /etc/bigbluebutton/nginx/sip.nginx",
 
