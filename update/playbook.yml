@@ -1,0 +1,5 @@
+---
+- name: dev
+  hosts: all
+  roles:
+    - update

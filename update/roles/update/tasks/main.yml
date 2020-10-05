@@ -1,0 +1,17 @@
+---
+  - name: apt update
+    shell: apt-get update
+  
+  - name: apt dist-upgrade
+    shell: apt-get dist-upgrade -y
+  
+  - name: set ip
+    shell: bbb-conf --setip {{ inventory_hostname }}
+  
+  - name: register bbb
+    shell: /root/register-bbb.sh bbb.messenger.schule {{ scalelite_prefix }} {{ ssh_key }}
+
+  - name: debug
+    debug:
+      msg: "/root/register-bbb.sh bbb.messenger.schule {{ scalelite_prefix }} {{ ssh_key }}"
+
