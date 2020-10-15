@@ -1,17 +1,32 @@
 ---
   - name: apt update
-    shell: apt-get update
+    apt:
+      update_cache: yes
+    tags: update
   
   - name: apt dist-upgrade
-    shell: apt-get dist-upgrade -y
+    apt:
+      upgrade: dist
+    tags: update
   
   - name: set ip
     shell: bbb-conf --setip {{ inventory_hostname }}
+    tags: update
   
   - name: register bbb
     shell: /root/register-bbb.sh bbb.messenger.schule {{ scalelite_prefix }} {{ ssh_key }}
+    tags: update
 
-  - name: debug
-    debug:
-      msg: "/root/register-bbb.sh bbb.messenger.schule {{ scalelite_prefix }} {{ ssh_key }}"
+  - name: replace turn-stun-servers.xml
+    copy:
+      src: turn-stun-servers.xml
+      dest: /usr/share/bbb-web/WEB-INF/classes/spring/turn-stun-servers.xml
+      owner: bigbluebutton
+      group: bigbluebutton
+      mode: '0644'
+    tags: turn_server
+  
+  - name: restart bbb
+    shell: bbb-conf --restart
+    tags: turn_server
 
