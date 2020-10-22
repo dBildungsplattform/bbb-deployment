@@ -12,10 +12,14 @@
   - name: set ip
     shell: bbb-conf --setip {{ inventory_hostname }}
     tags: update
+
+  - name: set secret
+    shell: bbb-conf --setsecret {{ bbb_secret }}
+    tags: set_secret
   
   - name: register bbb
     shell: /root/register-bbb.sh bbb.messenger.schule {{ scalelite_prefix }} {{ ssh_key }}
-    tags: update
+    tags: update, set_secret
 
   - name: replace turn-stun-servers.xml
     copy:
@@ -28,5 +32,5 @@
   
   - name: restart bbb
     shell: bbb-conf --restart
-    tags: turn_server
+    tags: turn_server, set_secret
 
