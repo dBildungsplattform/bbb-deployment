@@ -1,5 +1,10 @@
 ---
-- name: dev
-  hosts: all
+- name: BBB
+  hosts: bbb
   roles:
-    - update
+    - bbb
+
+- name: Scalelite
+  hosts: scalelite
+  roles:
+    - scalelite

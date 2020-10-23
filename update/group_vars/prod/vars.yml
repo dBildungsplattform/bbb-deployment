@@ -1,4 +1,4 @@
 ---
 scalelite_prefix: scalelite
 ssh_key: /root/.ssh/hpi-pk
-bbb_secret:
+bbb_secret: secret

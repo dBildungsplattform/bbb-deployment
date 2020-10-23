@@ -16,7 +16,7 @@
   - name: set secret
     shell: bbb-conf --setsecret {{ bbb_secret }}
     tags: set_secret
-  
+
   - name: register bbb
     shell: /root/register-bbb.sh bbb.messenger.schule {{ scalelite_prefix }} {{ ssh_key }}
     tags: update, set_secret

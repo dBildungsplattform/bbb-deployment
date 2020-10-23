@@ -1,0 +1,11 @@
+---
+  - name: replace secret in .env
+    lineinfile:
+      path: /root/.env
+      regexp: " LOADBALANCER_SECRET="
+      line: " LOADBALANCER_SECRET={{ bbb_secret }}"
+    tags: set_secret
+
+  - name: redeploy docker-compose
+    shell: docker-compose up -d
+    tags: set_secret
