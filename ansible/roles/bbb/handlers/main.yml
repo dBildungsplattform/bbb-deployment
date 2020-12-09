@@ -1,0 +1,15 @@
+---
+  
+  - name: restart bbb
+    shell: bbb-conf --restart
+    tags: turn_server, set_secret
+    
+  - name: reload nginx
+    systemd:
+      name: nginx
+      state: reloaded
+
+  - name: restart bbb-exporter
+    systemd:
+      name: bigbluebutton-exporter
+      state: restarted

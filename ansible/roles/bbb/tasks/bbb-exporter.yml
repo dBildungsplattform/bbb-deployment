@@ -1,0 +1,71 @@
+---
+  - name: Install python3-pip
+    apt:
+      name: python3-pip
+      state: present
+
+  - name: Is bbb-exporter installed?
+    stat:
+      path: "/opt/bigbluebutton-exporter"
+    register: bbb_exporter
+
+  - name: Install bbb-exporter
+    script: install-bbb-exporter.sh
+    when: bbb_exporter.stat.exists == false
+
+  - name: Create bbb-exporter user
+    user:
+      name: bbb-exporter
+      home: /opt/bigbluebutton-exporter
+      shell: /usr/sbin/nologin
+  
+  - name: Copy systemd service 
+    copy:
+      src: bigbluebutton-exporter.service
+      dest: /lib/systemd/system/bigbluebutton-exporter.service
+
+  - name: Create /etc/bigbluebutton-exporter
+    file:
+      path: /etc/bigbluebutton-exporter
+      state: directory
+    
+  - name: Copy settings.env
+    template:
+      src: settings.env.j2
+      dest: /etc/bigbluebutton-exporter/settings.env
+    notify: restart bbb-exporter
+
+  - name: Open port 9688
+    ufw:
+      rule: allow
+      port: "9688"
+      proto: tcp
+  
+  - name: Copy nginx configuration
+    template:
+      src: nodeexporter.j2
+      dest: /etc/nginx/sites-available/nodeexporter
+    notify: reload nginx
+
+  - name: Create /var/www/nodeexporter
+    file:
+      path: /var/www/nodeexporter
+      state: directory
+
+  - name: Copy basic auth user
+    template:
+      src: ne-htpasswd.j2
+      dest: /var/www/nodeexporter/.htpasswd
+
+  - name: Enable nginx configuration
+    file:
+      src: /etc/nginx/sites-available/nodeexporter
+      dest: /etc/nginx/sites-enabled/nodeexporter
+      state: link
+    notify: reload nginx
+  
+  - name: Start and enable bbb-exporter service
+    systemd:
+      name: bigbluebutton-exporter
+      enabled: yes
+      state: started

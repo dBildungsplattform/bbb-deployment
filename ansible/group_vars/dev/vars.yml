@@ -2,3 +2,4 @@
 scalelite_prefix: scalelite-dev
 ssh_key: /root/.ssh/hpi-dev-pk
 bbb_secret: secret
+ne_password: #password in htpasswd format

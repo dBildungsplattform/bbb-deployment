@@ -19,7 +19,7 @@
 
   - name: register bbb
     shell: /root/register-bbb.sh bbb.messenger.schule {{ scalelite_prefix }} {{ ssh_key }}
-    tags: update, set_secret
+    tags: update, set_secret, register_bbb
 
   - name: replace turn-stun-servers.xml
     copy:
@@ -28,9 +28,11 @@
       owner: bigbluebutton
       group: bigbluebutton
       mode: '0644'
+    notify: restart bbb
     tags: turn_server
   
-  - name: restart bbb
-    shell: bbb-conf --restart
-    tags: turn_server, set_secret
+  - import_tasks: bbb-exporter.yml
+    tags: bbb-exporter
+
+  
 
