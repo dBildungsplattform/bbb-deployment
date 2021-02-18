@@ -22,3 +22,4 @@ sed -i 's|<param name="listen-ip" value="::"/>|<param name="listen-ip" value="12
 mv /opt/freeswitch/etc/freeswitch/sip_profiles/internal-ipv6.xml /opt/freeswitch/etc/freeswitch/sip_profiles/internal-ipv6.xml_
 mv /opt/freeswitch/etc/freeswitch/sip_profiles/external-ipv6.xml /opt/freeswitch/etc/freeswitch/sip_profiles/external-ipv6.xml_
 
+sed -i 's/    breakoutRoomLimit:.*/    breakoutRoomLimit: 12/g' /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml
