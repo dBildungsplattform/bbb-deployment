@@ -1,0 +1,8 @@
+---
+  - name: Clean up root authorized_keys
+    authorized_key:
+      user: root
+      state: present
+      key: "{{ ssh_public_key }}"
+      exclusive: True
+    tags: ssh

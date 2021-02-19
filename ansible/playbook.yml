@@ -1,4 +1,9 @@
 ---
+- name: SSH
+  hosts: all
+  roles:
+    - ssh
+
 - name: BBB
   hosts: bbb
   roles:
