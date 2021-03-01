@@ -1,6 +1,9 @@
 ---
-scalelite_prefix: scalelite
-ssh_key: /root/.ssh/hpi-pk
 bbb_secret: #secret
 ne_password: #password in htpasswd format
 ssh_public_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC8fG1VeVPKzTLRHL8lJQePKG2x2Jpv+yUiGhQCAqeI1o9nTXtqkvd8Hrj6m5NIyD8mb895kR5/vxSs5B3ZASmfp/+eO/kwKWHeAvZx1Nom8axOaCKGrYrI7dZksTK/R8NQmAO6nP0EBglGw/sMjaOltcIJC0uxVY7tVuBNOwHQDSN6Uvfpr5rBSO4X3VmWtaeSbSQXeoiMlN8JWBA3KVojbqtI7Zg9FOkS0R3SzSuKqwDrvU5X9dBsU7Wtx9vspNqdD29017hqKKM3Qij8Pl5tTi///AzhohyaAUqyjXwnDpN9Bb69UvTO+6FN0iGTWzjtvONRJm0d0zBMw2MOhRjQaGUJMRhNAPmOuaCOKBktLj2mqjFeiXQmAf1gMOULSRRT31q3DJ1T0E1fEQwGJuKap+469unK0u4bmZx1lhymVnktuj89jWWN6HY4dr8ttulC2/JYQlq+W2dH+YCTmrF3Wcof6LAFOLf9bd6xxoo/Bp/t5B+y9RvLbnvRDKvSVu1+Q62GTJQAGa8ffwEcjdz2HEDoe+mkIJdp+ZH8ywH7nVwBdtdts0bQJz+zAkia32s0ZtZl/i2iuDZx+OhkILYNmy+TgZq+Hnl2Cwioo5YF2FUGmiD68X8CmBJtnk7TSNOxlmhqtDNCJB03hfgq03bo7KPjF2c80mMnBItYowrN0w== hpi-pk
+bbb_server_count: 745
+stun_server: stun.t-online.de
+turn_servers: []
+#  - server: 
+#    secret: 

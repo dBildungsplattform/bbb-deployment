@@ -1,6 +1,9 @@
 ---
-scalelite_prefix: scalelite-dev
-ssh_key: /root/.ssh/hpi-dev-pk
 bbb_secret: #secret
 ne_password: #password in htpasswd format
 ssh_public_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDXY606mkPFcgKzkFZvisKOZ44daA0IAjDew/Hq0TRWW0Ge8g0/YwJWOo8lQqiibBc6fH3S4cLqYg5BhkZ3xcyDPQGd6ntGWdfYqWJTRAziepOl6zuwtrHBA0UdKEVGY5Y49yTFwS+pIK5uiKgJYiXNtoXUfKVfNnS4GMGiT535S+3XL8Nbg0N04zudZGnMIVyG2F2xwkxL/hMk4YaR3wUDpQLJVQqQjkPzCSkNn+lmw8YKydlZWcEo5PSzM82XugKO1knFpZXOypgZEZSv6Rd3cfstTan31j0Xm1R3FeTud9M/CHtLzLaRrq6w7zTL46xk+8jw05ivcXahlX4OpbSDIY7GYYAP+5VZdgRW/0RA+eVqlPQsSBn9n+l7kRSkOsdnYvjRgUbyw5JgDqPN2E2hGJPZ34eCPbHrtA1GLrynanhyE+p8D3EU1AfRRbbrKOqK1X8m799xHnngkO3lW9m6kKr/8VkkyzB6fEFzY6GiGsoI9tanIZ30X9WzDvV2eHzNK6BTXSXJIaK3GfhQUsYhRabjbf09m3h7I9UoBbzyhhTDFjgtL3dCkCImYxWeKvEHzRMuBY3r4kOAZ+EIjpiRTr5fY3ncXQZ8bBxwHAGafV++dKFQoiAN/NIbdY3Zs5MBvtpYYZLcox5cZoJ6RYgxPTNCevZkUR2Hyy9qH/KPfQ== hpi.staging
+bbb_server_count: 7
+stun_server: turn-01.bbb.staging.messenger.schule
+turn_servers: []
+#  - server: 
+#    secret: 

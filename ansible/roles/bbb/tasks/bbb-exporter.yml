@@ -33,6 +33,7 @@
     template:
       src: settings.env.j2
       dest: /etc/bigbluebutton-exporter/settings.env
+    tags: set_secret
     notify: restart bbb-exporter
 
   - name: Open port 9688

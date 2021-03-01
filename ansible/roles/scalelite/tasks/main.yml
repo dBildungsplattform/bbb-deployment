@@ -4,8 +4,15 @@
       path: /root/.env
       regexp: " LOADBALANCER_SECRET="
       line: " LOADBALANCER_SECRET={{ bbb_secret }}"
+    notify: docker-compose up
     tags: set_secret
 
-  - name: redeploy docker-compose
-    shell: docker-compose up -d
+  - name: replace secret in register servers script
+    lineinfile:
+      path: /root/register-servers.sh
+      regexp: for \(\( i=\$START\; i<=\$END\; i\+\+ \)\)\; do docker exec scalelite-api ./bin/rake servers:add
+      line: 'for (( i=$START; i<=$END; i++ )); do docker exec scalelite-api ./bin/rake servers:add[https://bbb-$i.$(hostname)/bigbluebutton/api,{{ bbb_secret}}]; done | grep id | cut -d " " -f2 > ids'
+    notify:
+    - scalelite delete servers
+    - scalelite register servers
     tags: set_secret

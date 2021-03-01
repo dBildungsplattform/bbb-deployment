@@ -1,0 +1,9 @@
+---
+  - name: docker-compose up
+    shell: docker-compose up -d
+
+  - name: scalelite delete servers
+    shell: /root/delete-servers.sh 1 {{ bbb_server_count }}
+
+  - name: scalelite register servers
+    shell: /root/register-servers.sh 1 {{ bbb_server_count }}

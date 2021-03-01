@@ -18,13 +18,9 @@
     notify: restart bbb
     tags: set_secret
 
-#  - name: register bbb
-#    shell: /root/register-bbb.sh bbb.messenger.schule {{ scalelite_prefix }} {{ ssh_key }}
-#    tags: set_secret, register_bbb
-
   - name: replace turn-stun-servers.xml
-    copy:
-      src: turn-stun-servers.xml
+    template:
+      src: turn-stun-servers.xml.j2
       dest: /usr/share/bbb-web/WEB-INF/classes/spring/turn-stun-servers.xml
       owner: bigbluebutton
       group: bigbluebutton
