@@ -27,10 +27,15 @@ bbb-[501:619].bbb.messenger.schule
 [sc-bbb-5]
 bbb-[601:745].bbb.messenger.schule
 
+[prod-nbc]
+bbb-[1:50].bbb.nbc.messenger.schule
+
 [bbb]
 bbb-[1:7].bbb.staging.messenger.schule
 bbb-[1:745].bbb.messenger.schule
+bbb-[1:50].bbb.nbc.messenger.schule
 
 [scalelite]
 bbb.staging.messenger.schule
 bbb.messenger.schule
+bbb.nbc.messenger.schule
